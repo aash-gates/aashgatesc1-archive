@@ -1,0 +1,15 @@
+name: Archive Website
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Runs every 6 hours
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Archive Website
+        run: |
+          curl -s "https://web.archive.org/save/http://aashgates.c1.biz/"
